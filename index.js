@@ -2,7 +2,6 @@ var express = require("express"),
     app = express(),
     bodyParser = require("body-parser");
 
-//use static files
 app.use(express.static(__dirname + '/html'));
 app.use('/imgs', express.static('imgs'));
 app.use(express.static(__dirname + '/css'));
@@ -43,7 +42,7 @@ var posts = [
 
 // blog home page
 app.get('/blog', (req, res) => {
-  //render blog page
+  // render `home.ejs` with the list of posts
   res.render('blog', { posts: posts });
 });
 
@@ -54,7 +53,7 @@ app.get('/post/:id', (req, res) => {
     return post.id == req.params.id;
   })[0];
 
-  // render the `post.ejs` template with post content
+  // render the `post.ejs` template with the post content
   res.render('post', {
     author: post.author,
     title: post.title,
@@ -77,6 +76,7 @@ app.get("/blog/:id/edit", function(req, res){
 });
 
 
+
     app.listen(process.env.PORT, process.env.IP, function () {
-        console.log('Application listening!');
+        console.log('App is listening!');
 });
