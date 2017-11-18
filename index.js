@@ -8,7 +8,7 @@ var express = require("express"),
 app.use(express.static(__dirname + '/html'));
 app.use('/imgs', express.static('imgs'));
 app.use(express.static(__dirname + '/css'));
-app.use(express.favicon(__dirname, 'public/favicon.ico'));
+app.use(express.static(__dirname, 'public/favicon.ico'));
     
 var posts = [
       {
