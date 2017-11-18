@@ -41,6 +41,10 @@ var posts = [
     
     app.set('view engine', 'ejs');
 
+app.get('/', (req, res) {
+  res.render('/html/landing.html');
+});
+
 // blog home page
 app.get('/blog', (req, res) => {
   // render `home.ejs` with the list of posts
