@@ -5,7 +5,7 @@ var express = require("express"),
 app.use(express.static(__dirname + '/html'));
 app.use('/imgs', express.static('imgs'));
 app.use(express.static(__dirname + '/css'));
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
     
 var posts = [
       {
@@ -78,6 +78,6 @@ app.get("/blog/:id/edit", function(req, res){
 
 
 
-    app.listen(port, function () {
-        console.log('App is listening!');
+app.listen(port, function() {
+    console.log('Our app is running on http://localhost:' + port);
 });
