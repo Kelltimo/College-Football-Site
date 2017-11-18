@@ -1,13 +1,14 @@
 var express = require("express"), 
     app = express(),
     bodyParser = require("body-parser"), 
-    favicon = require("express-favicon"); 
+    favicon = require("serve-favicon"), 
+    path = require("path");
     
 
 app.use(express.static(__dirname + '/html'));
 app.use('/imgs', express.static('imgs'));
 app.use(express.static(__dirname + '/css'));
-app.use(favicon(__dirname + '/public/favicon.png'));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
     
 var posts = [
       {
