@@ -1,11 +1,13 @@
 var express = require("express"), 
     app = express(),
-    bodyParser = require("body-parser");
+    bodyParser = require("body-parser"), 
+    favicon = require("express-favicon"); 
+    
 
 app.use(express.static(__dirname + '/html'));
 app.use('/imgs', express.static('imgs'));
 app.use(express.static(__dirname + '/css'));
-var port = process.env.PORT || 8080;
+app.use(favicon(__dirname + '/public/favicon.png'));
     
 var posts = [
       {
@@ -40,10 +42,6 @@ var posts = [
     ];
     
     app.set('view engine', 'ejs');
-
-app.get('/', (req, res) {
-  res.render('/html/landing.html');
-});
 
 // blog home page
 app.get('/blog', (req, res) => {
@@ -82,6 +80,6 @@ app.get("/blog/:id/edit", function(req, res){
 
 
 
-server.listen(port, function() {
-    console.log("App is running on port " + port);
+    app.listen(process.env.PORT, process.env.IP, function () {
+        console.log('App is listening!');
 });
